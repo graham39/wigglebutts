@@ -1,0 +1,11 @@
+node_modules
+dist
+.DS_Store
+.vite
+_design
+
+# Claude Code per-machine settings (never commit)
+.claude/settings.local.json
+
+# User-specific launcher scripts
+claude-*.sh

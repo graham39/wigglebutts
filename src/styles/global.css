@@ -1,0 +1,150 @@
+/* Editorial direction — Aubergine accent, DM Serif display, Newsreader body */
+
+:root {
+  --bg: #0a0a0a;
+  --bg-2: #13110f;
+  --ink: #efe9dc;
+  --ink-2: #b8b0a0;
+  --ink-3: #7a7263;
+  --rule: #2a2620;
+
+  --accent-bright: #b9a4dc;
+  --accent-dim: #7d6b9a;
+  --accent-deep: #3a2b52;
+
+  --display-font: 'DM Serif Display', 'Times New Roman', serif;
+  --display-weight: 400;
+
+  --body-font: 'Inter', system-ui, sans-serif;
+  --serif-font: 'Newsreader', 'Times New Roman', serif;
+  --mono-font: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Phone-frame max width — keeps the editorial mobile feel on desktop too */
+  --shell-max: 480px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100%;
+}
+
+body {
+  /* Center the editorial mobile shell on wider screens */
+  display: flex;
+  justify-content: center;
+}
+
+#root {
+  width: 100%;
+  max-width: var(--shell-max);
+  min-height: 100vh;
+  background: var(--bg);
+  position: relative;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+input,
+textarea {
+  font-family: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ── Shared editorial primitives ──────────────────────────── */
+
+.display {
+  font-family: var(--display-font);
+  font-weight: var(--display-weight);
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+}
+
+.mono {
+  font-family: var(--mono-font);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.italic-accent {
+  font-style: italic;
+  color: var(--accent-bright);
+}
+
+.rule {
+  height: 1px;
+  background: var(--rule);
+}
+
+.cta {
+  background: var(--accent-bright);
+  color: var(--accent-deep);
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.cta:hover {
+  filter: brightness(1.05);
+}
+
+.cta-light {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.text-link {
+  font-size: 13px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 2px;
+  cursor: pointer;
+}
+
+.text-link:hover {
+  border-bottom-color: var(--accent-bright);
+}
+
+.tag {
+  font-family: var(--mono-font);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  background: var(--accent-bright);
+  padding: 5px 9px;
+  border-radius: 999px;
+  display: inline-block;
+}
