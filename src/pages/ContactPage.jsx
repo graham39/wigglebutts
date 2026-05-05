@@ -1,7 +1,35 @@
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CONTACT_PAGE, BUSINESS, CONTACT } from '../data/content.js';
 
+const FALLBACK_IFRAME_HEIGHT = 1200;
+
 export default function ContactPage() {
+  const iframeRef = useRef(null);
+  const [iframeHeight, setIframeHeight] = useState(FALLBACK_IFRAME_HEIGHT);
+
+  // Some embed services (forms.space included) post their content height via
+  // window.postMessage. If we get one, resize to match and avoid the inner scrollbar.
+  useEffect(() => {
+    const onMessage = (event) => {
+      const { data } = event;
+      if (!data) return;
+      const candidate =
+        typeof data === 'number'
+          ? data
+          : typeof data?.height === 'number'
+            ? data.height
+            : typeof data?.frameHeight === 'number'
+              ? data.frameHeight
+              : null;
+      if (candidate && candidate > 200 && candidate < 5000) {
+        setIframeHeight(candidate);
+      }
+    };
+    window.addEventListener('message', onMessage);
+    return () => window.removeEventListener('message', onMessage);
+  }, []);
+
   return (
     <div className="ct">
       <style>{css}</style>
@@ -26,14 +54,17 @@ export default function ContactPage() {
 
       <div className="ct-form-wrap">
         <iframe
+          ref={iframeRef}
           src={CONTACT.formUrl}
           title="Contact form"
           width="100%"
-          height="600"
+          height={iframeHeight}
           frameBorder="0"
           loading="lazy"
           referrerPolicy="strict-origin-when-cross-origin"
+          scrolling="no"
           className="ct-iframe"
+          style={{ height: iframeHeight }}
         />
       </div>
 

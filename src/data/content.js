@@ -17,13 +17,12 @@ export const CONTACT = {
 };
 
 export const HERO = {
-  // Editorial headline: 3 lines. Middle line gets the italic accent.
-  // Going two-line here: "Your best friend's" / "best friend." (italic)
-  headlineL1: "Your best friend's",
-  headlineL2: 'best friend.',
+  // Editorial headline: split across two lines, second line gets italic accent.
+  headlineL1: 'Big walk',
+  headlineL2: 'energy.',
   loc: '№ 01 — Fort Collins, CO',
   lede:
-    "Hi, I'm Celina — Chicago-born, Fort Collins-rooted, and the person your pets will be excited to see. I walk dogs and drop in on furry families across Fort Collins. Meds, puppies, seniors, special needs — everyone's welcome. Fully insured. Daily photo updates, no exceptions.",
+    "Hi, I'm Celina! I provide dog walking and drop-in pet care across Fort Collins. Puppies, seniors, daily meds, and special needs are always welcome. I am fully insured and guarantee daily photo updates. Let's keep those butts wiggling!",
   ctaPrimary: 'Get in touch →',
   ctaSecondary: 'How it works',
 };
