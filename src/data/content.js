@@ -47,15 +47,15 @@ export const SERVICES = [
     name: 'Dog walking',
     sub: 'Exercise + attention, on your dog’s schedule.',
     copy:
-      'A quick potty break or a real walk. Your dog gets the time, sniffs, and attention they need. I work around your routine and send photos and a note when I drop them off.',
+      'A quick potty break or a full walk. Your dog gets the time, sniffs, and attention they need. Every visit is tailored to your dog, and you\'ll get photos and an update when I drop them off.',
     durations: [
-      { d: '15 min', p: '$20', note: 'Potty break, energy reset.' },
-      { d: '30 min', p: '$30', note: 'Around-the-block walk.' },
-      { d: '60 min', p: '$45', note: 'Longer route. Tired dog at the end.' },
+      { d: '15 min', p: '$20', note: 'Potty break.' },
+      { d: '30 min', p: '$30', note: 'Proper walk. Plenty of sniffs.' },
+      { d: '60 min', p: '$45', note: 'Longer route. More exercise.' },
     ],
     includes: [
       'Same handler, me, every time',
-      'Daily photo updates with a real note',
+      'Photo updates with every visit',
       'Comfortable with reactive and special-needs dogs',
       'Fully insured for every visit',
       'Free meet-and-greet before we start',
@@ -69,15 +69,15 @@ export const SERVICES = [
     copy:
       "Feeding, watering, litter box, medication if needed, plenty of playtime and cuddles. I'll also collect mail and water plants on request. All animals welcome.",
     durations: [
-      { d: '15 min', p: '$20', note: 'Quick check-in.' },
-      { d: '30 min', p: '$30', note: 'Feed, fresh water, a little play.' },
-      { d: '60 min', p: '$45', note: 'Full visit with extended playtime.' },
+      { d: '15 min', p: '$20', note: 'Quick check-in. Potty break, fresh water.' },
+      { d: '30 min', p: '$30', note: 'Feed, fresh water, playtime or a walk.' },
+      { d: '60 min', p: '$45', note: 'Full visit. Extended playtime and cuddles.' },
     ],
     includes: [
-      'Feed, water, litter / bathroom',
+      'Feed, water, litter / potty break',
       'Med administration on schedule',
       'Mail, plants, household checks',
-      'Photo and a note every visit',
+      'Photo updates with every visit',
       'All animals welcome: cats, dogs, more',
     ],
     photoKey: 'dropIn',
@@ -93,7 +93,6 @@ export const SERVICES = [
       'Existing clients only',
       "Your home, your pet's routine",
       'Daily photo updates',
-      'Insured every visit',
     ],
     photoKey: 'cozy',
   },
@@ -176,7 +175,7 @@ export const FOOTER = {
 
 export const CONTACT_PAGE = {
   eyebrow: 'Get in touch',
-  title: ['Tell me about your ', 'furry family', '.'], // middle gets italic accent
+  title: ['Tell me about your ', 'fur babies', '.'], // middle gets italic accent
   body:
     "Fill this out and I'll get back to you within a day, usually same morning. If we're a fit, we'll set up a free meet-and-greet.",
 };
