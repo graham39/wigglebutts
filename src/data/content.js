@@ -149,13 +149,13 @@ export const ABOUT = {
   headlineTrail: ".\nHere's how I got here.",
   // Three paragraphs from your bio. Italic emphasis is rendered via <em> in the page.
   paragraphs: [
-    "Hi there! I'm a passionate animal lover and professional dog walker / pet sitter based in Fort Collins. Originally from Chicago, I've called Colorado home for the past eight years and have loved every moment here. My journey with pet care began when I started walking my neighbor's dog and quickly became the go-to caregiver for family and friends' pets.",
+    "Hi there! I'm a passionate animal lover and professional dog walker / pet sitter based in Fort Collins. Originally from Chicago, I've called Colorado home for the past 10 years and have loved every moment here. My journey with pet care began when I started walking my neighbor's dog and quickly became the go-to caregiver for family and friends' pets.",
     "After moving to Colorado, I expanded my experience by working with a reputable pet sitting company before deciding to launch my own independent business here in Fort Collins. I believe in <em>open, honest communication</em> and provide daily updates with photos to keep you connected with your pets while you're away.",
     "I offer dog walking and drop-in visits where I will spend quality time with your pets, with experience caring for puppies, seniors, special needs pets, and administering medications. Your pets are family, and <em>I will treat them as my own</em>. I am also fully insured for your peace of mind.",
   ],
   pullQuote: {
-    accent: 'Your pets are family',
-    rest: ', and I will treat them as my own.',
+    accent: "It started with one neighbor's dog. Now I can't imagine doing anything else.",
+    rest: '',
   },
   facts: [
     ['Insured', 'Petcare Business Insurance'],
