@@ -33,13 +33,18 @@ Insurance badge wired onto About page → "Insured" row. Wigglebutts logo also d
 
 Switched from a custom React form to a hosted forms.space embed. URL lives in `CONTACT.formUrl` in `src/data/content.js`. The iframe handles its own submission and thank-you state.
 
-## Phase 5 — Assets / TODOs
+## Phase 5 — Assets ✅ done
 
 - [x] Insurance badge wired onto About page → "Insured" row
 - [x] Captions removed (portrait, photo-split, "Pic. 01" tag)
-- [ ] **Favicon + og-image** — user is preparing assets; drop into `public/` and we'll wire `<link rel="icon">` + `<meta property="og:image">` in `index.html`
+- [x] Favicon (`favicon-32.png`), Apple touch icon (`icon-512.png`), og-image (`og-image.jpg`) — all in `public/`, wired into `index.html`
 
-## Phase 6 — Optional polish
+## Phase 6 — Source control ✅ done
 
+Pushed to https://github.com/graham39/wigglebutts (public, `main`). `claude-*.sh` and `.claude/settings.local.json` are gitignored.
+
+## Phase 7 — Optional polish
+
+- [ ] Forms.space form theme — the form's background is currently white-on-dark-page. Update colors inside the forms.space dashboard (cross-origin; can't be styled from this side)
 - [ ] Desktop layout (currently mobile-locked at 480px even on wide screens — explicit design choice from the prototype, but worth revisiting for desktop visitors)
-- [ ] Real domain + deploy (Vercel / Netlify both work out of the box for Vite)
+- [ ] Real domain + deploy (Vercel / Netlify / Cloudflare Pages all auto-detect Vite — point at the repo and they handle the rest)
