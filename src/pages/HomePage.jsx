@@ -46,20 +46,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* full-bleed photo + pull quote */}
-      <section className="ed-photo">
-        <img src={PHOTOS[HERO_QUOTE.photoKey]} alt={HERO_QUOTE.photoAlt} />
-        <div className="ed-photo-grad" />
-        <div className="ed-photo-caption">
-          <div className="display ed-pullquote">
-            {HERO_QUOTE.quote.split('\n').map((line, i, a) => (
-              <span key={i}>
-                {line}
-                {i < a.length - 1 && <br />}
-              </span>
-            ))}
+      {/* about teaser */}
+      <section className="ed-section ed-about-teaser">
+        <img src={PHOTOS.celinaPortrait} alt="Celina." className="ed-about-portrait" />
+        <div>
+          <div className="mono ed-section-eyebrow">About</div>
+          <div className="display ed-about-line">
+            The go-to dog person, turned professional.
           </div>
-          <div className="mono ed-pullquote-attrib">{HERO_QUOTE.attribution}</div>
+          <Link to="/about" className="text-link ed-about-link">
+            Read more →
+          </Link>
         </div>
       </section>
 
@@ -119,6 +116,9 @@ export default function HomePage() {
             @{CONTACT.instagramHandle} ↗
           </a>
         </div>
+        <div className="ed-photo">
+          <img src={PHOTOS[HERO_QUOTE.photoKey]} alt={HERO_QUOTE.photoAlt} />
+        </div>
         <div className="ed-ig-grid">
           {[PHOTOS.ig1, PHOTOS.ig2, PHOTOS.ig3, PHOTOS.ig4, PHOTOS.ig5, PHOTOS.ig6].map((p, i) => (
             <div key={i} className="ed-ig-tile">
@@ -130,20 +130,6 @@ export default function HomePage() {
           <a className="text-link" href={CONTACT.instagramUrl} target="_blank" rel="noreferrer">
             Follow for daily walks →
           </a>
-        </div>
-      </section>
-
-      {/* about teaser */}
-      <section className="ed-section ed-about-teaser">
-        <img src={PHOTOS.celinaPortrait} alt="Celina." className="ed-about-portrait" />
-        <div>
-          <div className="mono ed-section-eyebrow">About</div>
-          <div className="display ed-about-line">
-            The go-to dog person, turned professional.
-          </div>
-          <Link to="/about" className="text-link ed-about-link">
-            Read more →
-          </Link>
         </div>
       </section>
 
@@ -181,12 +167,8 @@ const css = `
   .ed-lede { font-size: 14.5px; line-height: 1.55; color: var(--ink-2); margin-top: 22px; max-width: 360px; }
   .ed-cta-row { margin-top: 26px; display:flex; align-items:center; gap: 18px; flex-wrap: wrap; }
 
-  .ed-photo { position: relative; height: 480px; margin: 10px 0 0; overflow: hidden; }
+  .ed-photo { position: relative; height: 320px; margin: 0 -22px 18px; overflow: hidden; }
   .ed-photo img { width: 100%; height: 100%; object-fit: cover; filter: contrast(1.02) saturate(0.92); }
-  .ed-photo-grad { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.85), transparent 45%); }
-  .ed-photo-caption { position: absolute; left: 22px; right: 22px; bottom: 22px; }
-  .ed-pullquote { font-size: 24px; margin-top: 14px; line-height: 1.05; }
-  .ed-pullquote-attrib { margin-top: 10px; color: var(--ink-2); }
 
   .ed-section { padding: 40px 22px 28px; }
   .ed-section-eyebrow { margin-bottom: 18px; }
