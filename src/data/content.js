@@ -20,9 +20,9 @@ export const HERO = {
   // Editorial headline: split across two lines, second line gets italic accent.
   headlineL1: 'Big walk',
   headlineL2: 'energy.',
-  loc: '№ 01 — Fort Collins, CO',
+  loc: '№ 01 · Fort Collins, CO',
   lede:
-    "Hi, I'm Celina! I provide dog walking and drop-in pet care across Fort Collins. Puppies, seniors, daily meds, and special needs are always welcome. I am fully insured and guarantee daily photo updates. Let's keep those butts wiggling!",
+    "Hi, I'm Celina! I provide dog walking and drop-in pet care across Fort Collins. Puppies, seniors, daily meds, and all types of animals are always welcome. I'm fully insured and you'll get daily photo updates. Let's keep those butts wiggling!",
   ctaPrimary: 'Get in touch →',
   ctaSecondary: 'How it works',
 };
@@ -30,7 +30,7 @@ export const HERO = {
 export const BASICS = [
   ['Daily photo updates', 'A real photo and a short note from every visit, so you can see exactly how it went.'],
   ['Just me, no subcontractors', "I'm the only person who walks and sits with your pet. Always."],
-  ['Fully insured', 'Petcare Business Insurance — every walk, every visit, covered.'],
+  ['Fully insured', 'Petcare Business Insurance. Every walk, every visit, covered.'],
 ];
 
 // Compact services list shown on homepage
@@ -47,14 +47,14 @@ export const SERVICES = [
     name: 'Dog walking',
     sub: 'Exercise + attention, on your dog’s schedule.',
     copy:
-      'A quick potty break or a real walk — your dog gets the time, sniffs, and attention they need. I work around your routine and send photos and a note when I drop them off.',
+      'A quick potty break or a real walk. Your dog gets the time, sniffs, and attention they need. I work around your routine and send photos and a note when I drop them off.',
     durations: [
       { d: '15 min', p: '$20', note: 'Potty break, energy reset.' },
       { d: '30 min', p: '$30', note: 'Around-the-block walk.' },
       { d: '60 min', p: '$45', note: 'Longer route. Tired dog at the end.' },
     ],
     includes: [
-      'Same handler — me, every time',
+      'Same handler, me, every time',
       'Daily photo updates with a real note',
       'Comfortable with reactive and special-needs dogs',
       'Fully insured for every visit',
@@ -78,7 +78,7 @@ export const SERVICES = [
       'Med administration on schedule',
       'Mail, plants, household checks',
       'Photo and a note every visit',
-      'All animals welcome — cats, dogs, more',
+      'All animals welcome: cats, dogs, more',
     ],
     photoKey: 'dropIn',
   },
@@ -87,7 +87,7 @@ export const SERVICES = [
     name: 'Overnights',
     sub: 'In your home. By arrangement.',
     copy:
-      "Multi-night care for existing clients — your pet stays in their own home, on their own routine. Same daily walks and drop-ins, plus me sleeping over. Reach out for a quote.",
+      "Multi-night care for existing clients. Your pet stays in their own home, on their own routine. Same daily walks and drop-ins, plus me sleeping over. Reach out for a quote.",
     durations: [{ d: 'Per night', p: 'From $150', note: 'Custom to your pet and stay length.' }],
     includes: [
       'Existing clients only',
@@ -103,13 +103,13 @@ export const SERVICES_INTRO = {
   eyebrow: 'What I offer',
   title: ['What I ', 'actually', ' do.'], // middle gets italic accent
   lede:
-    "I keep the menu honest. Walks, drop-ins, and overnights for existing clients — that's it. Pricing is the pricing.",
+    "I keep the menu honest. Walks, drop-ins, and overnights for existing clients. That's it. Pricing is the pricing.",
 };
 
 // Hero photo pull-quote (the big full-bleed image on homepage)
 export const HERO_QUOTE = {
   quote: 'Even my dogs felt\nthe love right away.',
-  attribution: '— Anna B.',
+  attribution: 'Anna B.',
   photoKey: 'heroGolden',
   photoAlt: 'Two black dogs resting on a Colorado mountain ridge.',
 };
@@ -119,7 +119,7 @@ export const TESTIMONIALS = [
   {
     pull: 'There was an immediate unspoken trust',
     rest:
-      ' I felt with Celina the moment we met. Even my dogs felt the love right away — and getting her cute photos and messages always made my day.',
+      ' I felt with Celina the moment we met. Even my dogs felt the love right away. Getting her cute photos and messages always made my day.',
     name: 'Anna B.',
   },
   {
@@ -156,12 +156,12 @@ export const ABOUT = {
   ],
   pullQuote: {
     accent: 'Your pets are family',
-    rest: ' — and I will treat them as my own.',
+    rest: ', and I will treat them as my own.',
   },
   facts: [
     ['Insured', 'Petcare Business Insurance'],
     ['Service area', 'Fort Collins and surrounding areas'],
-    ['Capacity', 'Calendar fills up quickly — first come, first serve'],
+    ['Capacity', 'Calendar fills up quickly. First come, first serve'],
   ],
   ctaTitle: ['Want to ', 'meet', '?'], // middle gets italic accent
   ctaBody: 'I do a free meet-and-greet before I take any new pet on. No pressure either way.',
@@ -169,7 +169,7 @@ export const ABOUT = {
 };
 
 export const FOOTER = {
-  headline: 'Calendar fills up quickly —\nfirst come, first serve.',
+  headline: 'Calendar fills up quickly.\nFirst come, first serve.',
   ctaLabel: 'Get in touch →',
   meta: 'Fort Collins, Colorado · est. 2024',
 };

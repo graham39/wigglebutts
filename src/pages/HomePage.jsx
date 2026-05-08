@@ -105,7 +105,7 @@ export default function HomePage() {
                 <span className="display italic-accent ed-tm-pull">{t.pull}</span>
                 <span className="ed-tm-rest">{t.rest}</span>
               </blockquote>
-              <figcaption className="mono ed-tm-attrib">— {t.name}</figcaption>
+              <figcaption className="mono ed-tm-attrib">{t.name}</figcaption>
             </figure>
           ))}
         </div>
