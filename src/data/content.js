@@ -12,8 +12,9 @@ export const BUSINESS = {
 export const CONTACT = {
   instagramHandle: 'wigglebutts.dog',
   instagramUrl: 'https://instagram.com/wigglebutts.dog',
-  // Hosted form embed (forms.space) — handles its own submission + thank-you screen
-  formUrl: 'https://derelict-tapestry-191.forms.space/019df8b1-4352-739e-9445-7be43e77e555',
+  // Jotform embed — handles its own submission + thank-you screen.
+  // Auto-sizes via Jotform's official embed handler script.
+  formId: '261276989088073',
 };
 
 export const HERO = {

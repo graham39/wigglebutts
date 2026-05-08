@@ -10,7 +10,7 @@ Repo: https://github.com/graham39/wigglebutts (public, default branch `main`).
 - react-router-dom for the four routes
 - No CSS framework — global tokens in `src/styles/global.css`, per-page styles inlined as a `<style>{css}</style>` block at the bottom of each page component (preserves the prototype's locality of style + markup)
 - Fonts loaded from Google Fonts via `<link>` in `index.html`: DM Serif Display (headlines), Newsreader (serif body), Inter (sans), JetBrains Mono (labels)
-- Contact form: hosted iframe at forms.space (URL in `CONTACT.formUrl`)
+- Contact form: Jotform iframe (form id in `CONTACT.formId`), auto-sized via Jotform's official embed handler script
 
 ## Layout
 
@@ -57,7 +57,7 @@ The original prototype let the user toggle accent (Aubergine / Cream / Amber / S
 
 All user-facing copy and photos are real (no more placeholders). Copy lives in `src/data/content.js`. Photos live in `public/photos/`, mapped in `src/data/photos.js`.
 
-The contact page is a forms.space iframe (URL in `CONTACT.formUrl`) — the iframe handles its own submission and thank-you screen. The component listens for `postMessage` height events to auto-resize and avoid an inner scrollbar; falls back to a 1200px fixed height. Form theme/colors are managed inside forms.space (cross-origin, can't be styled from this side).
+The contact page is a Jotform iframe (form id in `CONTACT.formId`) — the iframe handles its own submission and thank-you screen. `ContactPage.jsx` injects Jotform's official embed handler script (`for-form-embed-handler.js`) and calls `window.jotformEmbedHandler` to auto-size the iframe. Form theme/colors are managed inside Jotform's dashboard (cross-origin, can't be styled from this side); the configured colors should match the site tokens in `src/styles/global.css`.
 
 ## Commands
 

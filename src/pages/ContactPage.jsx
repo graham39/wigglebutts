@@ -1,34 +1,35 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CONTACT_PAGE, BUSINESS, CONTACT } from '../data/content.js';
 
-const FALLBACK_IFRAME_HEIGHT = 1200;
+const JOTFORM_HANDLER_SRC = 'https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js';
 
 export default function ContactPage() {
-  const iframeRef = useRef(null);
-  const [iframeHeight, setIframeHeight] = useState(FALLBACK_IFRAME_HEIGHT);
+  const iframeId = `JotFormIFrame-${CONTACT.formId}`;
 
-  // Some embed services (forms.space included) post their content height via
-  // window.postMessage. If we get one, resize to match and avoid the inner scrollbar.
   useEffect(() => {
-    const onMessage = (event) => {
-      const { data } = event;
-      if (!data) return;
-      const candidate =
-        typeof data === 'number'
-          ? data
-          : typeof data?.height === 'number'
-            ? data.height
-            : typeof data?.frameHeight === 'number'
-              ? data.frameHeight
-              : null;
-      if (candidate && candidate > 200 && candidate < 5000) {
-        setIframeHeight(candidate);
+    const callHandler = () => {
+      if (window.jotformEmbedHandler) {
+        window.jotformEmbedHandler(`iframe[id='${iframeId}']`, 'https://form.jotform.com/');
       }
     };
-    window.addEventListener('message', onMessage);
-    return () => window.removeEventListener('message', onMessage);
-  }, []);
+
+    if (window.jotformEmbedHandler) {
+      callHandler();
+      return;
+    }
+
+    let script = document.querySelector(`script[src="${JOTFORM_HANDLER_SRC}"]`);
+    const owns = !script;
+    if (owns) {
+      script = document.createElement('script');
+      script.src = JOTFORM_HANDLER_SRC;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    script.addEventListener('load', callHandler);
+    return () => script.removeEventListener('load', callHandler);
+  }, [iframeId]);
 
   return (
     <div className="ct">
@@ -54,17 +55,14 @@ export default function ContactPage() {
 
       <div className="ct-form-wrap">
         <iframe
-          ref={iframeRef}
-          src={CONTACT.formUrl}
+          id={iframeId}
           title="Contact form"
-          width="100%"
-          height={iframeHeight}
+          src={`https://form.jotform.com/${CONTACT.formId}`}
+          allow="geolocation; microphone; camera; fullscreen; payment"
+          allowTransparency="true"
           frameBorder="0"
-          loading="lazy"
-          referrerPolicy="strict-origin-when-cross-origin"
           scrolling="no"
           className="ct-iframe"
-          style={{ height: iframeHeight }}
         />
       </div>
 
@@ -93,7 +91,7 @@ const css = `
   .ct-body { font-size: 14.5px; line-height: 1.6; color: var(--ink-2); margin-top: 18px; }
 
   .ct-form-wrap { padding: 12px 22px 8px; }
-  .ct-iframe { border: none; border-radius: 8px; width: 100%; max-width: 100%; background: var(--ink); display: block; }
+  .ct-iframe { border: none; width: 100%; max-width: 100%; min-height: 539px; background: var(--bg); display: block; }
 
   .ct-fallback { padding: 16px 22px 60px; text-align: center; }
   .ct-fallback p { font-size: 13.5px; color: var(--ink-3); margin: 0; }
