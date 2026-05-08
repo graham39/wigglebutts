@@ -4,7 +4,6 @@ import {
   BUSINESS,
   CONTACT,
   HERO,
-  HERO_QUOTE,
   BASICS,
   HOME_SERVICES,
   TESTIMONIALS,
@@ -116,9 +115,6 @@ export default function HomePage() {
             @{CONTACT.instagramHandle} ↗
           </a>
         </div>
-        <div className="ed-photo">
-          <img src={PHOTOS[HERO_QUOTE.photoKey]} alt={HERO_QUOTE.photoAlt} />
-        </div>
         <div className="ed-ig-grid">
           {[PHOTOS.ig1, PHOTOS.ig2, PHOTOS.ig3, PHOTOS.ig4, PHOTOS.ig5, PHOTOS.ig6].map((p, i) => (
             <div key={i} className="ed-ig-tile">
@@ -166,9 +162,6 @@ const css = `
   .ed-h1 { font-size: 56px; margin: 0; }
   .ed-lede { font-size: 14.5px; line-height: 1.55; color: var(--ink-2); margin-top: 22px; max-width: 360px; }
   .ed-cta-row { margin-top: 26px; display:flex; align-items:center; gap: 18px; flex-wrap: wrap; }
-
-  .ed-photo { position: relative; height: 320px; margin: 0 -22px 18px; overflow: hidden; }
-  .ed-photo img { width: 100%; height: 100%; object-fit: cover; filter: contrast(1.02) saturate(0.92); }
 
   .ed-section { padding: 40px 22px 28px; }
   .ed-section-eyebrow { margin-bottom: 18px; }

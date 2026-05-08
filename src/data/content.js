@@ -105,14 +105,6 @@ export const SERVICES_INTRO = {
     "I keep the menu honest. Walks, drop-ins, and overnights for existing clients. That's it. Pricing is the pricing.",
 };
 
-// Hero photo pull-quote (the big full-bleed image on homepage)
-export const HERO_QUOTE = {
-  quote: 'Even my dogs felt\nthe love right away.',
-  attribution: 'Anna B.',
-  photoKey: 'heroGolden',
-  photoAlt: 'Two black dogs resting on a Colorado mountain ridge.',
-};
-
 // Full testimonials section on homepage
 export const TESTIMONIALS = [
   {
