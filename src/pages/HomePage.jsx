@@ -139,7 +139,7 @@ export default function HomePage() {
         <div>
           <div className="mono ed-section-eyebrow">About</div>
           <div className="display ed-about-line">
-            Originally from Chicago. Colorado for the past eight years. The go-to dog person, basically forever.
+            The go-to dog person, turned professional.
           </div>
           <Link to="/about" className="text-link ed-about-link">
             Read more →
