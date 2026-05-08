@@ -172,3 +172,16 @@ export const CONTACT_PAGE = {
   body:
     "Fill this out and I'll get back to you within a day, usually same morning. If we're a fit, we'll set up a free meet-and-greet.",
 };
+
+// Post-submit landing page (Jotform redirects here after a successful submission)
+export const THANKS = {
+  eyebrow: 'Confirmation',
+  headlineL1: 'Thanks!',
+  headlineL2: 'Talk soon.',
+  body:
+    "I got your message and will reach out shortly. Usually same morning, always within a day.",
+  ctaPrimary: 'Back to home →',
+  ctaSecondary: 'Or say hi on Instagram',
+  photoKey: 'heroGolden',
+  photoAlt: 'Two black dogs resting on a Colorado mountain ridge.',
+};
