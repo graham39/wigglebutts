@@ -185,3 +185,81 @@ export const THANKS = {
   photoKey: 'heroGolden',
   photoAlt: 'Two black dogs resting on a Colorado mountain ridge.',
 };
+
+export const SITE = {
+  url: 'https://wigglebutts.dog',
+  ownerName: 'Celina',
+  ogImage: '/og-image.jpg',
+};
+
+// Per-route <title> and meta description. Baked into each page's HTML at build
+// time (scripts/prerender.js) so crawlers that don't run JavaScript still see them.
+export const SEO = {
+  '/': {
+    title: 'wigglebutts · Fort Collins dog walking & pet sitting',
+    description:
+      'Celina is an independent, fully insured dog walker and pet sitter in Fort Collins, CO. Walks and drop-ins from $20, daily photo updates, free meet-and-greet.',
+  },
+  '/about': {
+    title: 'About Celina · wigglebutts Fort Collins pet care',
+    description:
+      'Meet Celina, the Fort Collins dog walker and pet sitter behind wigglebutts. Experienced with puppies, seniors, special-needs pets, and medications.',
+  },
+  '/services': {
+    title: 'Services & pricing · wigglebutts Fort Collins',
+    description:
+      'Dog walking and drop-in pet sitting in Fort Collins: $20 for 15 min, $30 for 30 min, $45 for 60 min. Overnights from $150 for existing clients.',
+  },
+  '/contact': {
+    title: 'Contact · wigglebutts Fort Collins dog walking',
+    description:
+      'Get in touch with Celina about dog walking or pet sitting in Fort Collins. Replies within a day, free meet-and-greet before any new pet.',
+  },
+  '/thanks': {
+    title: 'Thanks · wigglebutts',
+    description: 'Thanks for reaching out. Celina will be in touch within a day.',
+    noindex: true,
+  },
+};
+
+export const FAQ_INTRO = {
+  eyebrow: 'Questions',
+  title: ['Good to ', 'know', '.'], // middle gets italic accent
+};
+
+// Plain-language answers to what people ask before booking. Also published as
+// FAQPage structured data and in /llms.txt so AI assistants can quote them.
+export const FAQ = [
+  [
+    'How much does dog walking cost?',
+    'Walks are $20 for 15 minutes, $30 for 30 minutes, and $45 for 60 minutes. Drop-in pet sitting visits are priced the same. Overnights start at $150 per night.',
+  ],
+  [
+    'What area do you serve?',
+    'Fort Collins, Colorado and the surrounding areas.',
+  ],
+  [
+    'Who will be caring for my pet?',
+    "Me, Celina. I don't use subcontractors, so the same person walks and sits with your pet every time.",
+  ],
+  [
+    'Do you work with reactive or special-needs dogs?',
+    "Yes. I'm comfortable with reactive and special-needs dogs, and I have experience with puppies, seniors, and giving medications on schedule.",
+  ],
+  [
+    'Do you care for cats and other animals?',
+    'Yes, all animals are welcome. Drop-in visits cover feeding, fresh water, litter boxes, medication, and playtime.',
+  ],
+  [
+    'Are you insured?',
+    'Yes. I carry Petcare Business Insurance, which covers every walk and every visit.',
+  ],
+  [
+    'Do you offer overnight pet sitting?',
+    'Yes, for existing clients. I stay in your home so your pet keeps their own routine. Overnights start at $150 per night.',
+  ],
+  [
+    'How do I get started?',
+    "Send me a message through the contact form. I reply within a day, usually the same morning, and if we're a fit we'll set up a free meet-and-greet first.",
+  ],
+];

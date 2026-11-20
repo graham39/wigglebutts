@@ -9,3 +9,4 @@ _design
 
 # User-specific launcher scripts
 claude-*.sh
+dist-ssr

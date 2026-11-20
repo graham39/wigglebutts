@@ -5,11 +5,13 @@ import ServicesPage from './pages/ServicesPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 import ThankYouPage from './pages/ThankYouPage.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
+import PageTitle from './components/PageTitle.jsx';
 
 export default function App() {
   return (
     <>
       <ScrollToTop />
+      <PageTitle />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />

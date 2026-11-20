@@ -33,7 +33,7 @@ export default function ContactPage() {
 
   return (
     <div className="ct">
-      <style>{css}</style>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
 
       <div className="ct-topbar">
         <Link to="/" className="mono">
@@ -59,7 +59,7 @@ export default function ContactPage() {
           title="Contact form"
           src={`https://form.jotform.com/${CONTACT.formId}`}
           allow="geolocation; microphone; camera; fullscreen; payment"
-          allowTransparency="true"
+          allowtransparency="true"
           frameBorder="0"
           scrolling="no"
           className="ct-iframe"

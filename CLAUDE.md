@@ -8,7 +8,7 @@ Repo: https://github.com/graham39/wigglebutts (public, default branch `main`).
 
 - Vite 5 + React 18, plain JSX (no TypeScript)
 - react-router-dom for the four routes
-- No CSS framework — global tokens in `src/styles/global.css`, per-page styles inlined as a `<style>{css}</style>` block at the bottom of each page component (preserves the prototype's locality of style + markup)
+- No CSS framework — global tokens in `src/styles/global.css`, per-page styles inlined as a `<style dangerouslySetInnerHTML={{ __html: css }} />` block at the bottom of each page component (preserves the prototype's locality of style + markup)
 - Fonts loaded from Google Fonts via `<link>` in `index.html`: DM Serif Display (headlines), Newsreader (serif body), Inter (sans), JetBrains Mono (labels)
 - Contact form: Jotform iframe (form id in `CONTACT.formId`), auto-sized via Jotform's official embed handler script
 
@@ -49,7 +49,7 @@ The original prototype let the user toggle accent (Aubergine / Cream / Amber / S
 ## Conventions
 
 - Routing: navigation uses `<Link to="...">` from react-router. `ScrollToTop.jsx` resets scroll on route change. `/book` redirects to `/contact` (legacy from the original booking-flow prototype).
-- Each page's CSS is a `const css = ...` template string at the bottom of the file, rendered into `<style>{css}</style>` inside the component. This is intentional — keeps a page self-contained.
+- Each page's CSS is a `const css = ...` template string at the bottom of the file, rendered via `<style dangerouslySetInnerHTML={{ __html: css }} />` inside the component. This is intentional — keeps a page self-contained. (Not `<style>{css}</style>`: server rendering escapes quotes in that form, which breaks CSS like `content: "+"` and causes hydration errors.)
 - No emoji, no comments unless explaining a non-obvious why.
 - Photos: import from `src/data/photos.js`, never hardcode URLs in pages.
 
@@ -58,6 +58,16 @@ The original prototype let the user toggle accent (Aubergine / Cream / Amber / S
 All user-facing copy and photos are real (no more placeholders). Copy lives in `src/data/content.js`. Photos live in `public/photos/`, mapped in `src/data/photos.js`.
 
 The contact page is a Jotform iframe (form id in `CONTACT.formId`) — the iframe handles its own submission and thank-you screen. `ContactPage.jsx` injects Jotform's official embed handler script (`for-form-embed-handler.js`) and calls `window.jotformEmbedHandler` to auto-size the iframe. Form theme/colors are managed inside Jotform's dashboard (cross-origin, can't be styled from this side); the configured colors should match the site tokens in `src/styles/global.css`.
+
+## Prerendering and AI / search discoverability
+
+Production pages are prerendered so crawlers that don't run JavaScript (most AI crawlers) see real content. `npm run build` runs three steps: the normal client build, an SSR build of `src/entry-server.jsx`, then `scripts/prerender.js`, which:
+
+- writes each route in `SEO` (content.js) to `dist/<route>/index.html` with its own title, description, canonical and og tags
+- injects LocalBusiness JSON-LD on every page and FAQPage JSON-LD on `/services`
+- generates `dist/sitemap.xml` and `dist/llms.txt` from content.js (don't hand-edit those; they're build output)
+
+`src/main.jsx` hydrates prerendered HTML. Anything touching `window`/`document` must stay inside `useEffect` or the prerender breaks. New routes need an entry in `SEO` to get prerendered. `public/robots.txt` explicitly allows AI crawlers. Site URL lives in `SITE.url`.
 
 ## Commands
 

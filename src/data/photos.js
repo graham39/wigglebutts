@@ -25,6 +25,19 @@ export const PHOTOS = {
   _unused_catScratch: '/photos/gallery-05.jpg',
 };
 
+// Alt text for photos, so screen readers and crawlers know what's pictured.
+export const PHOTO_ALTS = {
+  '/photos/gallery-03.jpg': 'Black lab on a walk among autumn aspens.',
+  '/photos/gallery-08.jpg': 'Cat being petted indoors during a drop-in visit.',
+  '/photos/gallery-06.jpg': 'Pug napping at home.',
+  '/photos/gallery-09.jpg': 'German shepherd at sunset.',
+  '/photos/gallery-04.jpg': 'Golden retriever with snow on its nose.',
+  '/photos/gallery-01.jpg': 'Border collie standing by a stream.',
+  '/photos/gallery-02.jpg': 'Two bulldogs with a leaf.',
+  '/photos/gallery-07.jpg': 'Husky mix taking a treat.',
+  '/photos/gallery-10.jpg': 'Black cat sitting in a grocery bag.',
+};
+
 export const BADGES = {
   petcareInsurance: '/badges/petcare-insurance.png',
   wigglebuttsLogo: '/badges/wigglebutts-logo.webp',
