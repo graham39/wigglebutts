@@ -215,6 +215,11 @@ export const SEO = {
     description:
       'Get in touch with Celina about dog walking or pet sitting in Fort Collins. Replies within a day, free meet-and-greet before any new pet.',
   },
+  '/new-clients': {
+    title: 'Now accepting new clients · wigglebutts Fort Collins',
+    description:
+      'Celina is accepting new dog walking and pet sitting clients in Fort Collins, CO. Walks and drop-ins from $20, fully insured, free meet and greet.',
+  },
   '/thanks': {
     title: 'Thanks · wigglebutts',
     description: 'Thanks for reaching out. Celina will be in touch within a day.',
@@ -263,3 +268,41 @@ export const FAQ = [
     "Send me a message through the contact form. I reply within a day, usually the same morning, and if we're a fit we'll set up a free meet-and-greet first.",
   ],
 ];
+
+// Landing page for Instagram ads (/new-clients). Points everything at the meet and greet.
+export const NEW_CLIENTS = {
+  topbarLabel: 'New clients',
+  loc: 'Fort Collins, CO · Now booking',
+  headlineL1: 'Now accepting',
+  headlineL2: 'new clients.',
+  lede:
+    "Fort Collins pet owners: I'm Celina, an independent, fully insured dog walker and pet sitter. Every new client starts with a free meet and greet, so your pet gets to know me before I ever walk in alone.",
+  cta: 'Book a meet and greet →',
+  photoKey: 'heroGolden',
+  photoAlt: 'Two black dogs resting on a Colorado mountain ridge.',
+
+  // Timely angle shown as its own block, not the headline. Set to null after the
+  // holidays and the page keeps working as-is.
+  seasonal: {
+    eyebrow: 'Traveling for the holidays?',
+    body:
+      "Set up your meet and greet now so we're ready before you leave. Drop-ins, walks, and meds on schedule while you're away, with photo updates every visit.",
+  },
+
+  areaEyebrow: 'Service area',
+  areaTitle: ['Fort Collins ', 'and', ' nearby.'], // middle gets italic accent
+  areaBody: "If you're not sure whether you're in range, ask in your message and I'll let you know.",
+
+  pricingEyebrow: 'Pricing',
+  pricingNote: 'Drop-in visits are priced the same as walks. Overnights are for existing clients.',
+
+  stepsEyebrow: 'How it starts',
+  steps: [
+    ['Send a message', "Tell me about your pet. I reply within a day, usually the same morning."],
+    ['Free meet and greet', 'I come meet your pet at home. No pressure either way.'],
+    ['First visit', 'Then we get on the calendar, and you get a photo and a note every visit.'],
+  ],
+
+  closingTitle: ['Book a ', 'meet and greet', '.'], // middle gets italic accent
+  closingBody: 'Calendar fills up quickly. First come, first serve.',
+};

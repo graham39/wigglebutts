@@ -19,6 +19,7 @@ The site is intentionally locked to a centered 480px column even on desktop — 
 ## Files
 
 - `src/pages/HomePage.jsx`, `AboutPage.jsx`, `ServicesPage.jsx`, `ContactPage.jsx` — one file per route, each owns its own scoped CSS
+- `src/pages/NewClientsPage.jsx` — `/new-clients`, the landing page for Instagram ads. Not linked from site nav. Copy in `NEW_CLIENTS`; set `NEW_CLIENTS.seasonal` to `null` to drop the holiday block.
 - `src/data/content.js` — **all user-facing copy lives here.** Edit copy here, not in pages.
 - `src/data/photos.js` — local photo paths + `BADGES` export for the Petcare Insurance badge / wigglebutts logo
 - `src/styles/global.css` — design tokens (colors, fonts, shared `.cta` / `.mono` / `.display` classes)
