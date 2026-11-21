@@ -12,9 +12,8 @@ export const BUSINESS = {
 export const CONTACT = {
   instagramHandle: 'wigglebutts.dog',
   instagramUrl: 'https://instagram.com/wigglebutts.dog',
-  // Jotform embed — handles its own submission + thank-you screen.
-  // Auto-sizes via Jotform's official embed handler script.
-  formId: '261276989088073',
+  // Cloudflare Turnstile site key (public). Dev builds use Cloudflare's always-pass test key.
+  turnstileSiteKey: import.meta.env?.DEV ? '1x00000000000000000000AA' : '0x4AAAAAAGME4qsSBX_wi9bJ',
 };
 
 export const HERO = {
@@ -173,7 +172,33 @@ export const CONTACT_PAGE = {
     "Fill this out and I'll get back to you within a day, usually same morning. If we're a fit, we'll set up a free meet-and-greet.",
 };
 
-// Post-submit landing page (Jotform redirects here after a successful submission)
+// Native contact form (ContactPage.jsx). Field names must match functions/api/contact.js.
+export const CONTACT_FORM = {
+  fields: {
+    first_name: { label: 'First name', required: true, autoComplete: 'given-name' },
+    last_name: { label: 'Last name', autoComplete: 'family-name' },
+    email: { label: 'Email', required: true, type: 'email', autoComplete: 'email' },
+    phone: { label: 'Phone', required: true, type: 'tel', autoComplete: 'tel' },
+    zip: { label: 'Zip code', autoComplete: 'postal-code', inputMode: 'numeric', maxLength: 10 },
+    message: {
+      label: 'Tell me about your pets',
+      required: true,
+      placeholder: "Names, ages, breeds, and what kind of care you're looking for.",
+      maxLength: 5000,
+    },
+  },
+  submit: 'Send message →',
+  sending: 'Sending…',
+  errors: {
+    generic: "Sorry, your message didn't go through. Please try again, or reach out on Instagram",
+    verifying: "Still checking you're human. Give it a few seconds and try again, or reach out on Instagram",
+    invalid_email: 'That email address doesn’t look right. Please check it and try again, or reach out on Instagram',
+    missing_fields: 'Please fill in the required fields and try again, or reach out on Instagram',
+    verification_failed: "We couldn't verify you're human. Please try again, or reach out on Instagram",
+  },
+};
+
+// Post-submit landing page (the contact form navigates here after a successful send)
 export const THANKS = {
   eyebrow: 'Confirmation',
   headlineL1: 'Thanks!',
