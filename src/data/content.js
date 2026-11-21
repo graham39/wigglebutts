@@ -323,7 +323,6 @@ export const NEW_CLIENTS = {
   steps: [
     ['Send a message', "Tell me about your pet. I reply within a day, usually the same morning."],
     ['Free meet-and-greet', 'I come meet your pet at home. No pressure either way.'],
-    ['First visit', 'Then we get on the calendar, and you get a few photos and an update every visit.'],
   ],
 
   closingTitle: ['Book a ', 'meet-and-greet', '.'], // middle gets italic accent
