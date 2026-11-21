@@ -31,9 +31,9 @@ Insurance badge wired onto About page → "Insured" row. Wigglebutts logo also d
 
 ## Phase 4 — Contact form ✅ done
 
-Switched from a custom React form to a hosted Jotform embed. Form id lives in `CONTACT.formId` in `src/data/content.js`. The iframe handles its own submission and thank-you state; auto-sizes via Jotform's official embed handler script (`for-form-embed-handler.js`), injected from `ContactPage.jsx`.
+Native React form posting to a Cloudflare Pages Function (`functions/api/contact.js`), which verifies Turnstile, backs up each submission to KV, and emails Celina via Resend from `notify.wigglebutts.dog`. Setup and config in CLAUDE.md → "Contact form".
 
-(Earlier iteration used forms.space — replaced with Jotform for theme control.)
+History: forms.space → Jotform embed → native form (2026-11-21, after Jotform suspended the account and `/contact` showed "Form not found").
 
 ## Phase 5 — Assets ✅ done
 
@@ -47,6 +47,5 @@ Pushed to https://github.com/graham39/wigglebutts (public, `main`). `claude-*.sh
 
 ## Phase 7 — Optional polish
 
-- [ ] Configure Jotform theme to match site tokens (Aubergine accent on dark bg) — set in the Jotform dashboard since the iframe is cross-origin and can't be styled from this side
 - [ ] Desktop layout (currently mobile-locked at 480px even on wide screens — explicit design choice from the prototype, but worth revisiting for desktop visitors)
-- [ ] Real domain + deploy (Vercel / Netlify / Cloudflare Pages all auto-detect Vite — point at the repo and they handle the rest)
+- [x] Real domain + deploy — wigglebutts.dog on Cloudflare Pages (branch previews at `<branch>.wigglebutts.pages.dev`)

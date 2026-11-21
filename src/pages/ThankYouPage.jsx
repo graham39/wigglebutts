@@ -5,7 +5,7 @@ import { BUSINESS, CONTACT, THANKS } from '../data/content.js';
 export default function ThankYouPage() {
   return (
     <div className="th">
-      <style>{css}</style>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
 
       <div className="th-topbar">
         <Link to="/" className="mono">

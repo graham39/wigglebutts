@@ -8,7 +8,7 @@ export default function AboutPage() {
 
   return (
     <div className="ab">
-      <style>{css}</style>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
 
       {/* nav */}
       <div className="ab-topbar">
@@ -35,7 +35,7 @@ export default function AboutPage() {
 
       {/* portrait */}
       <div className="ab-portrait">
-        <img src={PHOTOS.celinaPortrait} alt="Celina." />
+        <img src={PHOTOS.celinaPortrait} alt="Celina, owner of wigglebutts, Fort Collins dog walker and pet sitter." />
       </div>
 
       {/* body */}
@@ -79,7 +79,7 @@ export default function AboutPage() {
                   className="ab-badge-link"
                   aria-label="Pet Care Business Insurance"
                 >
-                  <img src={BADGES.petcareInsurance} alt="" className="ab-badge" />
+                  <img src={BADGES.petcareInsurance} alt="Petcare Business Insurance seal" className="ab-badge" />
                 </a>
               )}
             </span>

@@ -9,3 +9,8 @@ _design
 
 # User-specific launcher scripts
 claude-*.sh
+dist-ssr
+
+# Cloudflare local dev (wrangler pages dev)
+.dev.vars
+.wrangler

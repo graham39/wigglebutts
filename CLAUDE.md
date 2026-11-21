@@ -8,9 +8,9 @@ Repo: https://github.com/graham39/wigglebutts (public, default branch `main`).
 
 - Vite 5 + React 18, plain JSX (no TypeScript)
 - react-router-dom for the four routes
-- No CSS framework — global tokens in `src/styles/global.css`, per-page styles inlined as a `<style>{css}</style>` block at the bottom of each page component (preserves the prototype's locality of style + markup)
+- No CSS framework — global tokens in `src/styles/global.css`, per-page styles inlined as a `<style dangerouslySetInnerHTML={{ __html: css }} />` block at the bottom of each page component (preserves the prototype's locality of style + markup)
 - Fonts loaded from Google Fonts via `<link>` in `index.html`: DM Serif Display (headlines), Newsreader (serif body), Inter (sans), JetBrains Mono (labels)
-- Contact form: Jotform iframe (form id in `CONTACT.formId`), auto-sized via Jotform's official embed handler script
+- Contact form: native React form → Cloudflare Pages Function (`functions/api/contact.js`) → Resend email, with Turnstile + honeypot spam protection and a KV backup of every submission (see "Contact form" below)
 
 ## Layout
 
@@ -19,6 +19,8 @@ The site is intentionally locked to a centered 480px column even on desktop — 
 ## Files
 
 - `src/pages/HomePage.jsx`, `AboutPage.jsx`, `ServicesPage.jsx`, `ContactPage.jsx` — one file per route, each owns its own scoped CSS
+- `src/pages/NewClientsPage.jsx` — `/new-clients`, the landing page for Instagram ads. Not linked from site nav. Copy in `NEW_CLIENTS`; set `NEW_CLIENTS.seasonal` to `null` to drop the holiday block.
+- `functions/api/contact.js` — Pages Function for `POST /api/contact` (validates, verifies Turnstile, backs up to KV, emails via Resend). Unit tests in `tests/contact.test.js` (kept outside `functions/` because every file there becomes a route).
 - `src/data/content.js` — **all user-facing copy lives here.** Edit copy here, not in pages.
 - `src/data/photos.js` — local photo paths + `BADGES` export for the Petcare Insurance badge / wigglebutts logo
 - `src/styles/global.css` — design tokens (colors, fonts, shared `.cta` / `.mono` / `.display` classes)
@@ -49,7 +51,7 @@ The original prototype let the user toggle accent (Aubergine / Cream / Amber / S
 ## Conventions
 
 - Routing: navigation uses `<Link to="...">` from react-router. `ScrollToTop.jsx` resets scroll on route change. `/book` redirects to `/contact` (legacy from the original booking-flow prototype).
-- Each page's CSS is a `const css = ...` template string at the bottom of the file, rendered into `<style>{css}</style>` inside the component. This is intentional — keeps a page self-contained.
+- Each page's CSS is a `const css = ...` template string at the bottom of the file, rendered via `<style dangerouslySetInnerHTML={{ __html: css }} />` inside the component. This is intentional — keeps a page self-contained. (Not `<style>{css}</style>`: server rendering escapes quotes in that form, which breaks CSS like `content: "+"` and causes hydration errors.)
 - No emoji, no comments unless explaining a non-obvious why.
 - Photos: import from `src/data/photos.js`, never hardcode URLs in pages.
 
@@ -57,7 +59,33 @@ The original prototype let the user toggle accent (Aubergine / Cream / Amber / S
 
 All user-facing copy and photos are real (no more placeholders). Copy lives in `src/data/content.js`. Photos live in `public/photos/`, mapped in `src/data/photos.js`.
 
-The contact page is a Jotform iframe (form id in `CONTACT.formId`) — the iframe handles its own submission and thank-you screen. `ContactPage.jsx` injects Jotform's official embed handler script (`for-form-embed-handler.js`) and calls `window.jotformEmbedHandler` to auto-size the iframe. Form theme/colors are managed inside Jotform's dashboard (cross-origin, can't be styled from this side); the configured colors should match the site tokens in `src/styles/global.css`.
+## Contact form
+
+`/contact` is a native form (`ContactPage.jsx`, copy in `CONTACT_FORM`). It POSTs FormData to `/api/contact`, then navigates to `/thanks` on success; on failure it shows an inline error pointing to Instagram and resets Turnstile. Field names (`first_name`, `last_name`, `email`, `phone`, `zip`, `message`, honeypot `website`) must match `FIELDS` in `functions/api/contact.js`.
+
+The function: honeypot filled → fake `{ok:true}`; trims and caps fields; 400 on missing/invalid; verifies Turnstile (siteverify with `remoteip`, expects action `contact`) → 403; writes `submission:<ISO time>:<uuid>` to KV if bound (errors logged, not fatal); sends via Resend (`reply_to` = submitter) → 502 on failure. Responses are JSON with `cache-control: no-store`.
+
+Config lives in the Cloudflare Pages dashboard (Settings → Variables and Secrets / Bindings), for both Production and Preview:
+
+- Secrets: `TURNSTILE_SECRET_KEY`, `RESEND_API_KEY`
+- Plaintext: `CONTACT_TO` (comma-separated inboxes), `CONTACT_FROM` = `wigglebutts <form@notify.wigglebutts.dog>`
+- KV binding: `SUBMISSIONS`
+
+**Do not add a `wrangler.toml`** — it would override the dashboard bindings. Email sends from `notify.wigglebutts.dog` (verified in Resend, DNS in Cloudflare). Never touch root-domain DNS: the root's MX/SPF/DMARC belong to Microsoft 365.
+
+Turnstile site key is public, in `CONTACT.turnstileSiteKey`; dev builds use the always-pass test key. The widget is rendered explicitly in a `useEffect` (SPA route changes don't trigger auto-render) and removed on unmount. The widget's allowed hostnames in the Turnstile dashboard must include `wigglebutts.dog` and `wigglebutts.pages.dev` (covers preview subdomains), or previews can't submit.
+
+Local end-to-end: `npm run build && npx wrangler pages dev dist`, with a gitignored `.dev.vars` holding `TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA` (always-pass test secret) plus `RESEND_API_KEY`, `CONTACT_TO`, `CONTACT_FROM`.
+
+## Prerendering and AI / search discoverability
+
+Production pages are prerendered so crawlers that don't run JavaScript (most AI crawlers) see real content. `npm run build` runs three steps: the normal client build, an SSR build of `src/entry-server.jsx`, then `scripts/prerender.js`, which:
+
+- writes each route in `SEO` (content.js) to `dist/<route>/index.html` with its own title, description, canonical and og tags
+- injects LocalBusiness JSON-LD on every page and FAQPage JSON-LD on `/services`
+- generates `dist/sitemap.xml` and `dist/llms.txt` from content.js (don't hand-edit those; they're build output)
+
+`src/main.jsx` hydrates prerendered HTML. Anything touching `window`/`document` must stay inside `useEffect` or the prerender breaks. New routes need an entry in `SEO` to get prerendered. `public/robots.txt` explicitly allows AI crawlers. Site URL lives in `SITE.url`.
 
 ## Commands
 
@@ -65,6 +93,7 @@ The contact page is a Jotform iframe (form id in `CONTACT.formId`) — the ifram
 npm run dev      # vite dev server (default :5173)
 npm run build    # production build to dist/
 npm run preview  # preview the built site
+npm test         # unit tests for the contact Pages Function
 ```
 
 ## What not to do

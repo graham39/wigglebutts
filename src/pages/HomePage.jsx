@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { PHOTOS } from '../data/photos.js';
+import { PHOTOS, PHOTO_ALTS } from '../data/photos.js';
 import {
   BUSINESS,
   CONTACT,
@@ -13,7 +13,7 @@ import {
 export default function HomePage() {
   return (
     <div className="ed">
-      <style>{css}</style>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
 
       {/* nav */}
       <div className="ed-topbar">
@@ -47,7 +47,7 @@ export default function HomePage() {
 
       {/* about teaser */}
       <section className="ed-section ed-about-teaser">
-        <img src={PHOTOS.celinaPortrait} alt="Celina." className="ed-about-portrait" />
+        <img src={PHOTOS.celinaPortrait} alt="Celina, Fort Collins dog walker and pet sitter." className="ed-about-portrait" />
         <div>
           <div className="mono ed-section-eyebrow">About</div>
           <div className="display ed-about-line">
@@ -118,7 +118,7 @@ export default function HomePage() {
         <div className="ed-ig-grid">
           {[PHOTOS.ig1, PHOTOS.ig2, PHOTOS.ig3, PHOTOS.ig4, PHOTOS.ig5, PHOTOS.ig6].map((p, i) => (
             <div key={i} className="ed-ig-tile">
-              <img src={p} alt="" loading="lazy" />
+              <img src={p} alt={PHOTO_ALTS[p] || ''} loading="lazy" />
             </div>
           ))}
         </div>

@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import { PHOTOS } from '../data/photos.js';
-import { BUSINESS, SERVICES, SERVICES_INTRO } from '../data/content.js';
+import { PHOTOS, PHOTO_ALTS } from '../data/photos.js';
+import { BUSINESS, SERVICES, SERVICES_INTRO, FAQ, FAQ_INTRO } from '../data/content.js';
 
 export default function ServicesPage() {
   return (
     <div className="sv">
-      <style>{css}</style>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
 
       <div className="sv-topbar">
         <Link to="/" className="mono">← {BUSINESS.name}</Link>
@@ -26,7 +26,7 @@ export default function ServicesPage() {
       <section className="sv-cards">
         {SERVICES.map((s) => (
           <article key={s.n} className="sv-card">
-            <img src={PHOTOS[s.photoKey]} alt="" />
+            <img src={PHOTOS[s.photoKey]} alt={PHOTO_ALTS[PHOTOS[s.photoKey]] || ''} />
             <div className="sv-card-body">
               <div className="sv-card-head">
                 <span className="mono sv-card-num">{s.n}</span>
@@ -62,6 +62,24 @@ export default function ServicesPage() {
             </div>
           </article>
         ))}
+      </section>
+
+      <section className="sv-faq">
+        <div className="mono sv-eyebrow">{FAQ_INTRO.eyebrow}</div>
+        <h2 className="display sv-faq-h2">
+          {FAQ_INTRO.title[0]}
+          <span className="italic-accent">{FAQ_INTRO.title[1]}</span>
+          {FAQ_INTRO.title[2]}
+        </h2>
+        <dl className="sv-faq-list">
+          {FAQ.map(([q, a]) => (
+            <div key={q} className="sv-faq-item">
+              <dt className="display sv-faq-q">{q}</dt>
+              <dd className="sv-faq-a">{a}</dd>
+            </div>
+          ))}
+        </dl>
+        <Link to="/contact" className="cta sv-card-cta">Get in touch →</Link>
       </section>
     </div>
   );
@@ -100,4 +118,11 @@ const css = `
   .sv-incl li:before { content: "+"; color: var(--accent-bright); font-family: var(--serif-font); font-size: 16px; line-height: 1; margin-top: 1px; }
 
   .sv-card-cta { margin-top: 18px; }
+
+  .sv-faq { padding: 0 22px 64px; }
+  .sv-faq-h2 { font-size: 34px; margin: 0; line-height: 1.0; }
+  .sv-faq-list { margin: 22px 0 0; border-top: 1px solid var(--rule); }
+  .sv-faq-item { padding: 16px 0; border-bottom: 1px solid var(--rule); }
+  .sv-faq-q { font-size: 19px; line-height: 1.2; }
+  .sv-faq-a { margin: 8px 0 0; font-size: 13.5px; line-height: 1.6; color: var(--ink-2); }
 `;
