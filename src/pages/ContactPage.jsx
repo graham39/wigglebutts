@@ -115,16 +115,15 @@ export default function ContactPage() {
     <div className="ct">
       <style dangerouslySetInnerHTML={{ __html: css }} />
 
-      <div className="ct-topbar">
-        <Link to="/" className="mono">
+      <div className="topbar">
+        <Link to="/" className="mono hit">
           ← {BUSINESS.name}
         </Link>
         <div className="mono">Contact</div>
       </div>
-      <div className="rule ct-rule" />
+      <div className="rule rule-inset" />
 
       <section className="ct-hero">
-        <div className="mono ct-eyebrow">{CONTACT_PAGE.eyebrow}</div>
         <h1 className="display ct-h1">
           {CONTACT_PAGE.title[0]}
           <span className="italic-accent">{CONTACT_PAGE.title[1]}</span>
@@ -184,16 +183,12 @@ export default function ContactPage() {
 
 const css = `
   .ct { background: var(--bg); color: var(--ink); min-height: 100%; }
-  .ct-topbar { display:flex; align-items:center; justify-content:space-between; padding: 18px 22px 12px; }
-  .ct-topbar a { text-decoration: none; }
-  .ct-rule { margin: 0 22px; }
 
-  .ct-hero { padding: 40px 22px 24px; }
-  .ct-eyebrow { color: var(--accent-bright); margin-bottom: 14px; }
+  .ct-hero { padding: var(--space-hero) var(--gutter) 24px; }
   .ct-h1 { font-size: 38px; margin: 0; line-height: 1.0; }
   .ct-body { font-size: 14.5px; line-height: 1.6; color: var(--ink-2); margin-top: 18px; }
 
-  .ct-form { padding: 12px 22px 8px; }
+  .ct-form { padding: 12px var(--gutter) 8px; }
   .ct-fieldset { border: 0; margin: 0; padding: 0; min-width: 0; display: grid; gap: 24px; }
   .ct-fieldset:disabled { opacity: 0.6; }
   .ct-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
@@ -239,6 +234,6 @@ const css = `
   .ct-submit { justify-self: start; }
   .ct-fieldset:disabled .ct-submit { cursor: progress; }
 
-  .ct-fallback { padding: 28px 22px 60px; text-align: center; }
+  .ct-fallback { padding: 28px var(--gutter) var(--space-end); text-align: center; }
   .ct-fallback p { font-size: 13.5px; color: var(--ink-3); margin: 0; }
 `;

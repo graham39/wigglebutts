@@ -21,6 +21,15 @@
 
   /* Phone-frame max width — keeps the editorial mobile feel on desktop too */
   --shell-max: 480px;
+
+  /* Spacing scale shared by every page's repeated structures */
+  --gutter: 22px;
+  --space-hero: 40px;
+  --space-section: 40px;
+  --space-end: 64px;
+
+  /* One grade for every content photograph so they read as a set */
+  --photo-filter: contrast(1.02) saturate(0.92);
 }
 
 * {
@@ -71,7 +80,48 @@ img {
   max-width: 100%;
 }
 
+:focus-visible {
+  outline: 2px solid var(--accent-bright);
+  outline-offset: 3px;
+}
+
 /* ── Shared editorial primitives ──────────────────────────── */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px var(--gutter) 12px;
+}
+
+.topbar a {
+  text-decoration: none;
+}
+
+.rule-inset {
+  margin: 0 var(--gutter);
+}
+
+.photo {
+  filter: var(--photo-filter);
+}
+
+/* Small text links get an invisible 44px-tall hit area without changing layout */
+.hit,
+.text-link {
+  position: relative;
+}
+
+.hit::after,
+.text-link::after {
+  content: '';
+  position: absolute;
+  left: -6px;
+  right: -6px;
+  top: 50%;
+  height: 44px;
+  transform: translateY(-50%);
+}
 
 .display {
   font-family: var(--display-font);

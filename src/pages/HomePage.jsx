@@ -16,18 +16,17 @@ export default function HomePage() {
       <style dangerouslySetInnerHTML={{ __html: css }} />
 
       {/* nav */}
-      <div className="ed-topbar">
+      <div className="topbar">
         <div className="ed-display italic-accent ed-wordmark">{BUSINESS.name}</div>
         <div className="ed-status">
           <span className="ed-dot" />
           <span className="mono ed-status-text">{BUSINESS.shortLocation}</span>
         </div>
       </div>
-      <div className="rule ed-rule" />
+      <div className="rule rule-inset" />
 
       {/* hero */}
       <section className="ed-hero">
-        <div className="mono ed-loc">{HERO.loc}</div>
         <h1 className="display ed-h1">
           {HERO.headlineL1}
           <br />
@@ -47,14 +46,14 @@ export default function HomePage() {
 
       {/* about teaser */}
       <section className="ed-section ed-about-teaser">
-        <img src={PHOTOS.celinaPortrait} alt="Celina, Fort Collins dog walker and pet sitter." className="ed-about-portrait" />
+        <img src={PHOTOS.celinaPortrait} alt="Celina, Fort Collins dog walker and pet sitter." className="photo ed-about-portrait" />
         <div>
           <div className="mono ed-section-eyebrow">About</div>
           <div className="display ed-about-line">
             The go-to dog person, turned professional.
           </div>
           <Link to="/about" className="text-link ed-about-link">
-            Read more →
+            Read more
           </Link>
         </div>
       </section>
@@ -72,7 +71,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="rule ed-rule" />
+      <div className="rule rule-inset" />
 
       {/* services list */}
       <section className="ed-section">
@@ -98,8 +97,8 @@ export default function HomePage() {
           {TESTIMONIALS.map((t) => (
             <figure key={t.name} className="ed-tm">
               <blockquote className="ed-tm-quote">
-                <span className="display italic-accent ed-tm-pull">{t.pull}</span>
-                <span className="ed-tm-rest">{t.rest}</span>
+                <span className="display ed-tm-pull">{t.pull}</span>
+                {t.rest}
               </blockquote>
               <figcaption className="mono ed-tm-attrib">{t.name}</figcaption>
             </figure>
@@ -111,20 +110,20 @@ export default function HomePage() {
       <section className="ed-section ed-ig-section">
         <div className="ed-ig-head">
           <div className="mono">From the field</div>
-          <a className="mono ed-ig-handle" href={CONTACT.instagramUrl} target="_blank" rel="noreferrer">
-            @{CONTACT.instagramHandle} ↗
+          <a className="mono hit ed-ig-handle" href={CONTACT.instagramUrl} target="_blank" rel="noreferrer">
+            @{CONTACT.instagramHandle}
           </a>
         </div>
         <div className="ed-ig-grid">
           {[PHOTOS.ig1, PHOTOS.ig2, PHOTOS.ig3, PHOTOS.ig4, PHOTOS.ig5, PHOTOS.ig6].map((p, i) => (
             <div key={i} className="ed-ig-tile">
-              <img src={p} alt={PHOTO_ALTS[p] || ''} loading="lazy" />
+              <img className="photo" src={p} alt={PHOTO_ALTS[p] || ''} loading="lazy" />
             </div>
           ))}
         </div>
         <div className="ed-ig-foot">
           <a className="text-link" href={CONTACT.instagramUrl} target="_blank" rel="noreferrer">
-            Follow for daily walks →
+            Follow for daily walks
           </a>
         </div>
       </section>
@@ -134,7 +133,7 @@ export default function HomePage() {
         <div className="display ed-footer-h">
           {FOOTER.headline.split('\n').map((line, i, a) => (
             <span key={i}>
-              {i === 0 ? <span className="italic-accent">{line}</span> : line}
+              {line}
               {i < a.length - 1 && <br />}
             </span>
           ))}
@@ -150,20 +149,17 @@ export default function HomePage() {
 
 const css = `
   .ed { background: var(--bg); color: var(--ink); min-height: 100%; }
-  .ed-topbar { display:flex; align-items:center; justify-content:space-between; padding: 18px 22px 12px; }
   .ed-wordmark { font-size: 18px; }
   .ed-status { display:flex; gap:6px; align-items:center; }
   .ed-dot { width:6px; height:6px; border-radius:99px; background:var(--accent-bright); }
   .ed-status-text { font-size: 9.5px; }
-  .ed-rule { margin: 0 22px; }
 
-  .ed-hero { padding: 34px 22px 24px; }
-  .ed-loc { margin-bottom: 22px; }
+  .ed-hero { padding: var(--space-hero) var(--gutter) 24px; }
   .ed-h1 { font-size: 56px; margin: 0; }
   .ed-lede { font-size: 14.5px; line-height: 1.55; color: var(--ink-2); margin-top: 22px; max-width: 360px; }
   .ed-cta-row { margin-top: 26px; display:flex; align-items:center; gap: 18px; flex-wrap: wrap; }
 
-  .ed-section { padding: 40px 22px 28px; }
+  .ed-section { padding: var(--space-section) var(--gutter) 28px; }
   .ed-section-eyebrow { margin-bottom: 18px; }
   .ed-basics { display: grid; gap: 18px; }
   .ed-basic-h { font-size: 22px; }
@@ -180,8 +176,7 @@ const css = `
   .ed-tmgrid { display: grid; gap: 28px; }
   .ed-tm { margin: 0; padding: 0; }
   .ed-tm-quote { margin: 0; font-family: var(--serif-font); font-size: 14.5px; line-height: 1.6; color: var(--ink-2); }
-  .ed-tm-pull { font-size: 22px; line-height: 1.15; display: inline; }
-  .ed-tm-rest { font-style: normal; }
+  .ed-tm-pull { font-size: 22px; line-height: 1.15; display: inline; color: var(--ink); }
   .ed-tm-attrib { margin-top: 12px; color: var(--ink-3); }
 
   .ed-ig-section { padding-bottom: 16px; }
@@ -198,7 +193,7 @@ const css = `
   .ed-about-line { font-size: 22px; line-height: 1.1; }
   .ed-about-link { margin-top: 14px; display: inline-block; }
 
-  .ed-footer { padding: 36px 22px 60px; text-align: center; }
+  .ed-footer { padding: 36px var(--gutter) var(--space-end); text-align: center; }
   .ed-footer-h { font-size: 32px; line-height: 1.1; }
   .ed-footer-cta { margin-top: 22px; }
   .ed-footer-meta { margin-top: 22px; }

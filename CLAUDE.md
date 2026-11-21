@@ -53,7 +53,9 @@ The original prototype let the user toggle accent (Aubergine / Cream / Amber / S
 - Routing: navigation uses `<Link to="...">` from react-router. `ScrollToTop.jsx` resets scroll on route change. `/book` redirects to `/contact` (legacy from the original booking-flow prototype).
 - Each page's CSS is a `const css = ...` template string at the bottom of the file, rendered via `<style dangerouslySetInnerHTML={{ __html: css }} />` inside the component. This is intentional — keeps a page self-contained. (Not `<style>{css}</style>`: server rendering escapes quotes in that form, which breaks CSS like `content: "+"` and causes hydration errors.)
 - No emoji, no comments unless explaining a non-obvious why.
-- Photos: import from `src/data/photos.js`, never hardcode URLs in pages.
+- Photos: import from `src/data/photos.js`, never hardcode URLs in pages. Every content photo gets `className="photo"` (one shared grade, `--photo-filter`); badges/logos don't.
+- Restraint rules: the italic-accent word (`.italic-accent`) is used on the homepage hero and at most one H1 per page (plus the wordmark); secondary headings, prices and quotes stay plain. No mono eyebrow above a heading that already says the same thing. "→" only on `.cta` pill buttons, never on text links. No "№".
+- Shared layout: topbars use the global `.topbar` + `rule rule-inset` classes; paddings use the spacing tokens in `:root` (`--gutter`, `--space-hero`, `--space-section`, `--space-end`). Small text links get `.hit` (or are `.text-link`) for a 44px tap area. Global `:focus-visible` outline; contact inputs keep their border-color focus instead.
 
 ## Content status
 

@@ -11,17 +11,16 @@ export default function AboutPage() {
       <style dangerouslySetInnerHTML={{ __html: css }} />
 
       {/* nav */}
-      <div className="ab-topbar">
-        <Link to="/" className="mono ab-back">
+      <div className="topbar">
+        <Link to="/" className="mono hit">
           ← {BUSINESS.name}
         </Link>
         <div className="mono">About</div>
       </div>
-      <div className="rule ab-rule" />
+      <div className="rule rule-inset" />
 
       {/* hero */}
       <section className="ab-hero">
-        <div className="mono ab-eyebrow">{ABOUT.eyebrow}</div>
         <h1 className="display ab-h1">
           {ABOUT.headlineLead}
           <span className="italic-accent">{ABOUT.headlineName}</span>
@@ -35,7 +34,7 @@ export default function AboutPage() {
 
       {/* portrait */}
       <div className="ab-portrait">
-        <img src={PHOTOS.celinaPortrait} alt="Celina, owner of wigglebutts, Fort Collins dog walker and pet sitter." />
+        <img className="photo" src={PHOTOS.celinaPortrait} alt="Celina, owner of wigglebutts, Fort Collins dog walker and pet sitter." />
       </div>
 
       {/* body */}
@@ -51,16 +50,15 @@ export default function AboutPage() {
       <section className="ab-pull">
         <div className="rule" />
         <div className="display ab-pullquote">
-          <span className="italic-accent">"{ABOUT.pullQuote.accent}"</span>
-          {ABOUT.pullQuote.rest}
+          "{ABOUT.pullQuote}"
         </div>
         <div className="rule" />
       </section>
 
       {/* photo split */}
       <div className="ab-split">
-        <img src={PHOTOS.walking} alt="Dog on a walk." />
-        <img src={PHOTOS.cozy} alt="Dog napping." />
+        <img className="photo" src={PHOTOS.walking} alt="Dog on a walk." />
+        <img className="photo" src={PHOTOS.cozy} alt="Dog napping." />
       </div>
 
       {/* facts */}
@@ -89,11 +87,7 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="ab-footer">
-        <div className="display ab-footer-h">
-          {ABOUT.ctaTitle[0]}
-          <span className="italic-accent">{ABOUT.ctaTitle[1]}</span>
-          {ABOUT.ctaTitle[2]}
-        </div>
+        <div className="display ab-footer-h">{ABOUT.ctaTitle}</div>
         <p className="ab-footer-body">{ABOUT.ctaBody}</p>
         <Link to="/contact" className="cta">
           {ABOUT.ctaLabel}
@@ -105,36 +99,33 @@ export default function AboutPage() {
 
 const css = `
   .ab { background: var(--bg); color: var(--ink); min-height: 100%; }
-  .ab-topbar { display:flex; align-items:center; justify-content:space-between; padding: 18px 22px 12px; }
-  .ab-back { text-decoration: none; }
-  .ab-rule { margin: 0 22px; }
 
-  .ab-hero { padding: 40px 22px 28px; }
+  .ab-hero { padding: var(--space-hero) var(--gutter) 28px; }
   .ab-eyebrow { margin-bottom: 18px; }
   .ab-h1 { font-size: 46px; margin: 0; line-height: 1.0; }
 
-  .ab-portrait { padding: 0 22px; }
+  .ab-portrait { padding: 0 var(--gutter); }
   .ab-portrait img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
 
-  .ab-body-section { padding: 36px 22px 20px; }
+  .ab-body-section { padding: 36px var(--gutter) 20px; }
   .ab-body { font-size: 15px; line-height: 1.65; color: var(--ink-2); font-family: var(--serif-font); font-weight: 400; }
   .ab-body p { margin: 0 0 18px; }
   .ab-body em { color: var(--accent-bright); font-style: italic; }
 
-  .ab-pull { padding: 8px 22px 28px; }
+  .ab-pull { padding: 8px var(--gutter) 28px; }
   .ab-pullquote { font-size: 28px; padding: 28px 0; color: var(--ink); line-height: 1.05; }
 
-  .ab-split { padding: 8px 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .ab-split { padding: 8px var(--gutter); display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .ab-split img { width: 100%; aspect-ratio: 3/4; object-fit: cover; }
 
-  .ab-facts { padding: 40px 22px 24px; }
+  .ab-facts { padding: var(--space-section) var(--gutter) 24px; }
   .ab-fact { display: grid; grid-template-columns: 120px 1fr; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--rule); align-items: center; }
   .ab-fact-key { color: var(--accent-bright); }
   .ab-fact-val { font-size: 13.5px; color: var(--ink-2); line-height: 1.5; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
   .ab-badge-link { display: inline-block; line-height: 0; flex-shrink: 0; }
   .ab-badge { width: 64px; height: auto; background: var(--ink); border-radius: 6px; padding: 4px; }
 
-  .ab-footer { padding: 30px 22px 60px; text-align: center; }
+  .ab-footer { padding: 30px var(--gutter) var(--space-end); text-align: center; }
   .ab-footer-h { font-size: 32px; }
   .ab-footer-body { font-size: 14px; color: var(--ink-2); max-width: 320px; margin: 14px auto 22px; line-height: 1.55; }
 `;

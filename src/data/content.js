@@ -20,7 +20,6 @@ export const HERO = {
   // Editorial headline: split across two lines, second line gets italic accent.
   headlineL1: 'Big walk',
   headlineL2: 'energy.',
-  loc: '№ 01 · Fort Collins, CO',
   lede:
     "Hi, I'm Celina! I provide dog walking and drop-in pet care across Fort Collins. Puppies, seniors, daily meds, and all types of animals are always welcome. I'm fully insured and you'll get daily photo updates. Let's keep those butts wiggling!",
   ctaPrimary: 'Get in touch →',
@@ -99,7 +98,6 @@ export const SERVICES = [
 ];
 
 export const SERVICES_INTRO = {
-  eyebrow: 'What I offer',
   title: ['What I ', 'actually', ' do.'], // middle gets italic accent
   lede:
     "I keep the menu honest. Walks, drop-ins, and overnights for existing clients. That's it. Pricing is the pricing.",
@@ -134,7 +132,6 @@ export const TESTIMONIALS = [
 ];
 
 export const ABOUT = {
-  eyebrow: 'Letter № 01',
   // Headline split into two parts: leading text, then italic-accented name + trailing
   headlineLead: "Hi, I'm ",
   headlineName: 'Celina',
@@ -145,16 +142,13 @@ export const ABOUT = {
     "After moving to Colorado, I expanded my experience by working with a reputable pet sitting company before deciding to launch my own independent business here in Fort Collins. I believe in <em>open, honest communication</em> and provide daily updates with photos to keep you connected with your pets while you're away.",
     "I offer dog walking and drop-in visits where I will spend quality time with your pets, with experience caring for puppies, seniors, special needs pets, and administering medications. Your pets are family, and <em>I will treat them as my own</em>. I am also fully insured for your peace of mind.",
   ],
-  pullQuote: {
-    accent: "It started with one neighbor's dog. Now I can't imagine doing anything else.",
-    rest: '',
-  },
+  pullQuote: "It started with one neighbor's dog. Now I can't imagine doing anything else.",
   facts: [
     ['Insured', 'Petcare Business Insurance'],
     ['Service area', 'Fort Collins and surrounding areas'],
     ['Capacity', 'Calendar fills up quickly. First come, first serve'],
   ],
-  ctaTitle: ['Want to ', 'meet', '?'], // middle gets italic accent
+  ctaTitle: 'Want to meet?',
   ctaBody: 'I do a free meet-and-greet before I take any new pet on. No pressure either way.',
   ctaLabel: 'Set up a meet-and-greet →',
 };
@@ -166,7 +160,6 @@ export const FOOTER = {
 };
 
 export const CONTACT_PAGE = {
-  eyebrow: 'Get in touch',
   title: ['Tell me about your ', 'fur babies', '.'], // middle gets italic accent
   body:
     "Fill this out and I'll get back to you within a day, usually same morning. If we're a fit, we'll set up a free meet-and-greet.",
@@ -200,7 +193,7 @@ export const CONTACT_FORM = {
 
 // Post-submit landing page (the contact form navigates here after a successful send)
 export const THANKS = {
-  eyebrow: 'Confirmation',
+  topbarLabel: 'Confirmation',
   headlineL1: 'Thanks!',
   headlineL2: 'Talk soon.',
   body:
@@ -253,8 +246,7 @@ export const SEO = {
 };
 
 export const FAQ_INTRO = {
-  eyebrow: 'Questions',
-  title: ['Good to ', 'know', '.'], // middle gets italic accent
+  title: 'Good to know.',
 };
 
 // Plain-language answers to what people ask before booking. Also published as
@@ -297,7 +289,6 @@ export const FAQ = [
 // Landing page for Instagram ads (/new-clients). Points everything at the meet and greet.
 export const NEW_CLIENTS = {
   topbarLabel: 'New clients',
-  loc: 'Fort Collins, CO · Now booking',
   headlineL1: 'Now accepting',
   headlineL2: 'new clients.',
   lede:
@@ -309,13 +300,12 @@ export const NEW_CLIENTS = {
   // Timely angle shown as its own block, not the headline. Set to null after the
   // holidays and the page keeps working as-is.
   seasonal: {
-    eyebrow: 'Traveling for the holidays?',
+    title: 'Traveling for the holidays?',
     body:
       "Set up your meet and greet now so we're ready before you leave. Drop-ins, walks, and meds on schedule while you're away, with photo updates every visit.",
   },
 
-  areaEyebrow: 'Service area',
-  areaTitle: ['Fort Collins ', 'and', ' nearby.'], // middle gets italic accent
+  areaTitle: 'Fort Collins and nearby.',
   areaBody: "If you're not sure whether you're in range, ask in your message and I'll let you know.",
 
   pricingEyebrow: 'Pricing',
@@ -328,6 +318,6 @@ export const NEW_CLIENTS = {
     ['First visit', 'Then we get on the calendar, and you get a photo and a note every visit.'],
   ],
 
-  closingTitle: ['Book a ', 'meet and greet', '.'], // middle gets italic accent
+  closingTitle: 'Book a meet and greet.',
   closingBody: 'Calendar fills up quickly. First come, first serve.',
 };

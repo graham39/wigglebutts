@@ -7,14 +7,13 @@ export default function ServicesPage() {
     <div className="sv">
       <style dangerouslySetInnerHTML={{ __html: css }} />
 
-      <div className="sv-topbar">
-        <Link to="/" className="mono">← {BUSINESS.name}</Link>
+      <div className="topbar">
+        <Link to="/" className="mono hit">← {BUSINESS.name}</Link>
         <div className="mono">Services</div>
       </div>
-      <div className="rule sv-rule" />
+      <div className="rule rule-inset" />
 
       <section className="sv-intro">
-        <div className="mono sv-eyebrow">{SERVICES_INTRO.eyebrow}</div>
         <h1 className="display sv-h1">
           {SERVICES_INTRO.title[0]}
           <span className="italic-accent">{SERVICES_INTRO.title[1]}</span>
@@ -26,7 +25,7 @@ export default function ServicesPage() {
       <section className="sv-cards">
         {SERVICES.map((s) => (
           <article key={s.n} className="sv-card">
-            <img src={PHOTOS[s.photoKey]} alt={PHOTO_ALTS[PHOTOS[s.photoKey]] || ''} />
+            <img className="photo" src={PHOTOS[s.photoKey]} alt={PHOTO_ALTS[PHOTOS[s.photoKey]] || ''} />
             <div className="sv-card-body">
               <div className="sv-card-head">
                 <span className="mono sv-card-num">{s.n}</span>
@@ -42,7 +41,7 @@ export default function ServicesPage() {
                       <div className="display sv-pricing-d">{d.d}</div>
                       <div className="sv-pricing-note">{d.note}</div>
                     </div>
-                    <div className="display italic-accent sv-pricing-p">{d.p}</div>
+                    <div className="display sv-pricing-p">{d.p}</div>
                   </div>
                 ))}
               </div>
@@ -65,12 +64,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="sv-faq">
-        <div className="mono sv-eyebrow">{FAQ_INTRO.eyebrow}</div>
-        <h2 className="display sv-faq-h2">
-          {FAQ_INTRO.title[0]}
-          <span className="italic-accent">{FAQ_INTRO.title[1]}</span>
-          {FAQ_INTRO.title[2]}
-        </h2>
+        <h2 className="display sv-faq-h2">{FAQ_INTRO.title}</h2>
         <dl className="sv-faq-list">
           {FAQ.map(([q, a]) => (
             <div key={q} className="sv-faq-item">
@@ -87,16 +81,12 @@ export default function ServicesPage() {
 
 const css = `
   .sv { background: var(--bg); color: var(--ink); min-height: 100%; }
-  .sv-topbar { display:flex; align-items:center; justify-content:space-between; padding: 18px 22px 12px; }
-  .sv-topbar a { text-decoration: none; }
-  .sv-rule { margin: 0 22px; }
 
-  .sv-intro { padding: 40px 22px 28px; }
-  .sv-eyebrow { margin-bottom: 18px; }
+  .sv-intro { padding: var(--space-hero) var(--gutter) 28px; }
   .sv-h1 { font-size: 42px; margin: 0; line-height: 1.0; }
   .sv-lede { font-size: 14.5px; line-height: 1.6; color: var(--ink-2); margin-top: 18px; }
 
-  .sv-cards { padding: 8px 22px 60px; display: grid; gap: 24px; }
+  .sv-cards { padding: 8px var(--gutter) var(--space-end); display: grid; gap: 24px; }
   .sv-card { background: var(--bg-2); border-radius: 4px; overflow: hidden; }
   .sv-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
   .sv-card-body { padding: 22px; }
@@ -119,7 +109,7 @@ const css = `
 
   .sv-card-cta { margin-top: 18px; }
 
-  .sv-faq { padding: 0 22px 64px; }
+  .sv-faq { padding: 0 var(--gutter) var(--space-end); }
   .sv-faq-h2 { font-size: 34px; margin: 0; line-height: 1.0; }
   .sv-faq-list { margin: 22px 0 0; border-top: 1px solid var(--rule); }
   .sv-faq-item { padding: 16px 0; border-bottom: 1px solid var(--rule); }

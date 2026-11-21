@@ -8,17 +8,16 @@ export default function NewClientsPage() {
     <div className="nc">
       <style dangerouslySetInnerHTML={{ __html: css }} />
 
-      <div className="nc-topbar">
-        <Link to="/" className="mono">← {BUSINESS.name}</Link>
+      <div className="topbar">
+        <Link to="/" className="mono hit">← {BUSINESS.name}</Link>
         <div className="nc-status">
           <span className="nc-dot" />
           <span className="mono">{NC.topbarLabel}</span>
         </div>
       </div>
-      <div className="rule nc-rule" />
+      <div className="rule rule-inset" />
 
       <section className="nc-hero">
-        <div className="mono nc-eyebrow">{NC.loc}</div>
         <h1 className="display nc-h1">
           {NC.headlineL1}
           <br />
@@ -29,25 +28,20 @@ export default function NewClientsPage() {
       </section>
 
       <section className="nc-photo">
-        <img src={PHOTOS[NC.photoKey]} alt={NC.photoAlt} />
+        <img className="photo" src={PHOTOS[NC.photoKey]} alt={NC.photoAlt} />
       </section>
 
       {NC.seasonal && (
         <section className="nc-section">
           <div className="nc-seasonal">
-            <div className="mono nc-seasonal-eyebrow">{NC.seasonal.eyebrow}</div>
+            <div className="mono nc-seasonal-title">{NC.seasonal.title}</div>
             <p className="nc-seasonal-body">{NC.seasonal.body}</p>
           </div>
         </section>
       )}
 
       <section className="nc-section">
-        <div className="mono nc-eyebrow">{NC.areaEyebrow}</div>
-        <h2 className="display nc-h2">
-          {NC.areaTitle[0]}
-          <span className="italic-accent">{NC.areaTitle[1]}</span>
-          {NC.areaTitle[2]}
-        </h2>
+        <h2 className="display nc-h2">{NC.areaTitle}</h2>
         <p className="nc-body">{NC.areaBody}</p>
       </section>
 
@@ -60,12 +54,12 @@ export default function NewClientsPage() {
                 <div className="display nc-pricing-name">{name}</div>
                 <div className="mono nc-pricing-d">{durations}</div>
               </div>
-              <div className="display italic-accent nc-pricing-p">{prices}</div>
+              <div className="display nc-pricing-p">{prices}</div>
             </div>
           ))}
         </div>
         <p className="nc-note">{NC.pricingNote}</p>
-        <Link to="/services" className="text-link nc-more">Full service details →</Link>
+        <Link to="/services" className="text-link nc-more">Full service details</Link>
       </section>
 
       <section className="nc-section">
@@ -96,18 +90,14 @@ export default function NewClientsPage() {
 
       <section className="nc-section">
         <blockquote className="nc-quote">
-          <span className="display italic-accent">“{quote.pull}</span>
+          <span className="display">“{quote.pull}</span>
           <span className="nc-quote-rest">{quote.rest}”</span>
           <footer className="mono">{quote.name}</footer>
         </blockquote>
       </section>
 
       <section className="nc-closing">
-        <h2 className="display nc-closing-h">
-          {NC.closingTitle[0]}
-          <span className="italic-accent">{NC.closingTitle[1]}</span>
-          {NC.closingTitle[2]}
-        </h2>
+        <h2 className="display nc-closing-h">{NC.closingTitle}</h2>
         <p className="nc-body">{NC.closingBody}</p>
         <Link to="/contact" className="cta nc-cta">{NC.cta}</Link>
       </section>
@@ -117,27 +107,24 @@ export default function NewClientsPage() {
 
 const css = `
   .nc { background: var(--bg); color: var(--ink); min-height: 100%; }
-  .nc-topbar { display:flex; align-items:center; justify-content:space-between; padding: 18px 22px 12px; }
-  .nc-topbar a { text-decoration: none; }
   .nc-status { display: flex; align-items: center; gap: 8px; }
   .nc-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-bright); box-shadow: 0 0 0 4px var(--accent-deep); }
-  .nc-rule { margin: 0 22px; }
 
   .nc-eyebrow { margin-bottom: 16px; }
-  .nc-hero { padding: 34px 22px 30px; }
+  .nc-hero { padding: var(--space-hero) var(--gutter) 30px; }
   .nc-h1 { font-size: 54px; margin: 0; }
   .nc-lede { font-size: 15px; line-height: 1.6; color: var(--ink-2); margin: 20px 0 0; }
   .nc-cta { margin-top: 24px; }
 
   .nc-photo { height: 320px; overflow: hidden; }
-  .nc-photo img { width: 100%; height: 100%; object-fit: cover; filter: contrast(1.02) saturate(0.92); }
+  .nc-photo img { width: 100%; height: 100%; object-fit: cover; }
 
-  .nc-section { padding: 36px 22px 0; }
+  .nc-section { padding: var(--space-section) var(--gutter) 0; }
   .nc-h2 { font-size: 36px; margin: 0; line-height: 1.0; }
   .nc-body { font-size: 14px; line-height: 1.6; color: var(--ink-2); margin: 14px 0 0; }
 
   .nc-seasonal { border: 1px solid var(--accent-deep); background: var(--bg-2); border-radius: 4px; padding: 20px; }
-  .nc-seasonal-eyebrow { color: var(--accent-bright); }
+  .nc-seasonal-title { color: var(--accent-bright); }
   .nc-seasonal-body { font-size: 14px; line-height: 1.6; color: var(--ink-2); margin: 10px 0 0; }
 
   .nc-pricing { border-top: 1px solid var(--rule); }
@@ -163,6 +150,6 @@ const css = `
   .nc-quote-rest { font-family: var(--serif-font); font-size: 16px; line-height: 1.5; color: var(--ink-2); }
   .nc-quote footer { margin-top: 14px; }
 
-  .nc-closing { padding: 44px 22px 64px; text-align: center; }
+  .nc-closing { padding: 44px var(--gutter) var(--space-end); text-align: center; }
   .nc-closing-h { font-size: 36px; margin: 0; line-height: 1.05; }
 `;
