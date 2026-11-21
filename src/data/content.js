@@ -140,7 +140,7 @@ export const ABOUT = {
   // Three paragraphs from your bio. Italic emphasis is rendered via <em> in the page.
   paragraphs: [
     "Hi there! I'm a passionate animal lover and professional dog walker / pet sitter based in Fort Collins. Originally from Chicago, I've called Colorado home for the past 10 years and have loved every moment here. My journey with pet care began when I started walking my neighbor's dog and quickly became the go-to caregiver for family and friends' pets.",
-    "After moving to Colorado, I expanded my experience by working with a reputable pet sitting company before deciding to launch my own independent business here in Fort Collins. I believe in <em>open, honest communication</em> and provide daily updates with photos to keep you connected with your pets while you're away.",
+    "After moving to Colorado, I expanded my experience by working with a reputable pet sitting company before deciding to launch my own independent business here in Fort Collins. I believe in <em>open, honest communication</em> and provide photo updates every visit to keep you connected with your pets while you're away.",
     "I offer dog walking and drop-in visits where I will spend quality time with your pets, with experience caring for puppies, seniors, special needs pets, and administering medications. Your pets are family, and <em>I will treat them as my own</em>. I am also fully insured for your peace of mind.",
   ],
   pullQuote: {
@@ -241,7 +241,7 @@ export const SEO = {
   '/new-clients': {
     title: 'Now accepting new clients · wigglebutts Fort Collins',
     description:
-      'Celina is accepting new dog walking and pet sitting clients in Fort Collins, CO. Walks and drop-ins from $20, fully insured, free meet and greet.',
+      'Celina is accepting new dog walking and pet sitting clients in Fort Collins, CO. Walks and drop-ins from $20, fully insured, free meet-and-greet.',
   },
   '/thanks': {
     title: 'Thanks · wigglebutts',
@@ -299,8 +299,8 @@ export const NEW_CLIENTS = {
   headlineL1: 'Now accepting',
   headlineL2: 'new clients.',
   lede:
-    "Fort Collins pet owners: I'm Celina, an independent, fully insured dog walker and pet sitter. Every new client starts with a free meet and greet, so your pet gets to know me before I ever walk in alone.",
-  cta: 'Book a meet and greet →',
+    "Fort Collins pet owners: I'm Celina, and I provide dog walking and drop-in pet care across town. I'm fully insured, and every new client starts with a free meet-and-greet, so your pet gets to know me before I ever walk in alone.",
+  cta: 'Book a meet-and-greet →',
   photoKey: 'heroGolden',
   photoAlt: 'Two black dogs resting on a Colorado mountain ridge.',
 
@@ -309,7 +309,7 @@ export const NEW_CLIENTS = {
   seasonal: {
     eyebrow: 'Traveling for the holidays?',
     body:
-      "Set up your meet and greet now so we're ready before you leave. Drop-ins, walks, and meds on schedule while you're away, with photo updates every visit.",
+      "Set up your meet-and-greet now so we're ready before you leave. Drop-ins, walks, and meds on schedule while you're away, with photo updates every visit.",
   },
 
   areaEyebrow: 'Service area',
@@ -322,10 +322,9 @@ export const NEW_CLIENTS = {
   stepsEyebrow: 'How it starts',
   steps: [
     ['Send a message', "Tell me about your pet. I reply within a day, usually the same morning."],
-    ['Free meet and greet', 'I come meet your pet at home. No pressure either way.'],
-    ['First visit', 'Then we get on the calendar, and you get a photo and a note every visit.'],
+    ['Free meet-and-greet', 'I come meet your pet at home. No pressure either way.'],
   ],
 
-  closingTitle: ['Book a ', 'meet and greet', '.'], // middle gets italic accent
+  closingTitle: ['Book a ', 'meet-and-greet', '.'], // middle gets italic accent
   closingBody: 'Calendar fills up quickly. First come, first serve.',
 };
