@@ -20,7 +20,6 @@ export default function ServicesPage() {
           <span className="italic-accent">{SERVICES_INTRO.title[1]}</span>
           {SERVICES_INTRO.title[2]}
         </h1>
-        <p className="sv-lede">{SERVICES_INTRO.lede}</p>
       </section>
 
       <section className="sv-cards">
@@ -94,7 +93,6 @@ const css = `
   .sv-intro { padding: 40px 22px 28px; }
   .sv-eyebrow { margin-bottom: 18px; }
   .sv-h1 { font-size: 42px; margin: 0; line-height: 1.0; }
-  .sv-lede { font-size: 14.5px; line-height: 1.6; color: var(--ink-2); margin-top: 18px; }
 
   .sv-cards { padding: 8px 22px 60px; display: grid; gap: 24px; }
   .sv-card { background: var(--bg-2); border-radius: 4px; overflow: hidden; }

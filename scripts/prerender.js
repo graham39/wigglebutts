@@ -119,7 +119,7 @@ fs.writeFileSync(path.join(dist, 'sitemap.xml'), sitemap);
 
 const llms = `# ${BUSINESS.name}
 
-> ${BUSINESS.name} is ${SITE.ownerName}'s independent dog walking and pet sitting business in ${BUSINESS.city}, ${BUSINESS.region} (est. ${BUSINESS.established}). Fully insured, no subcontractors, daily photo updates, free meet-and-greet before taking on any new pet.
+> ${BUSINESS.name} is ${SITE.ownerName}'s independent dog walking and pet sitting business in ${BUSINESS.city}, ${BUSINESS.region} (est. ${BUSINESS.established}). Fully insured, no subcontractors, photo updates every visit, free meet-and-greet before taking on any new pet.
 
 ${stripTags(HERO.lede)}
 
