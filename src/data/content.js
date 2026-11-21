@@ -22,13 +22,13 @@ export const HERO = {
   headlineL2: 'energy.',
   loc: '№ 01 · Fort Collins, CO',
   lede:
-    "Hi, I'm Celina! I provide dog walking and drop-in pet care across Fort Collins. Puppies, seniors, daily meds, and all types of animals are always welcome. I'm fully insured and you'll get daily photo updates. Let's keep those butts wiggling!",
+    "Hi, I'm Celina! I provide dog walking and drop-in pet care across Fort Collins. If yours pulls, sniffs every single tree, or would rather soak up cuddles and belly rubs, I love it all! I'm fully insured, and you'll get photo updates every visit. Let's keep those butts wigglin'!",
   ctaPrimary: 'Get in touch →',
   ctaSecondary: 'How it works',
 };
 
 export const BASICS = [
-  ['Daily photo updates', 'A real photo and a short note from every visit, so you can see exactly how it went.'],
+  ['Photo updates every visit', 'A few photos and an update every visit, so you always feel connected.'],
   ['Just me, no subcontractors', "I'm the only person who walks and sits with your pet. Always."],
   ['Fully insured', 'Petcare Business Insurance. Every walk, every visit, covered.'],
 ];
@@ -101,8 +101,6 @@ export const SERVICES = [
 export const SERVICES_INTRO = {
   eyebrow: 'What I offer',
   title: ['What I ', 'actually', ' do.'], // middle gets italic accent
-  lede:
-    "I keep the menu honest. Walks, drop-ins, and overnights for existing clients. That's it. Pricing is the pricing.",
 };
 
 // Full testimonials section on homepage
@@ -223,7 +221,7 @@ export const SEO = {
   '/': {
     title: 'wigglebutts · Fort Collins dog walking & pet sitting',
     description:
-      'Celina is an independent, fully insured dog walker and pet sitter in Fort Collins, CO. Walks and drop-ins from $20, daily photo updates, free meet-and-greet.',
+      'Celina is an independent, fully insured dog walker and pet sitter in Fort Collins, CO. Walks and drop-ins from $20, photo updates every visit, free meet-and-greet.',
   },
   '/about': {
     title: 'About Celina · wigglebutts Fort Collins pet care',
