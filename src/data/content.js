@@ -22,7 +22,7 @@ export const HERO = {
   headlineL2: 'energy.',
   loc: '№ 01 · Fort Collins, CO',
   lede:
-    "Hi, I'm Celina! I provide dog walking and drop-in pet care across Fort Collins. If yours pulls, sniffs every single tree, or would rather soak up cuddles and belly rubs, I love it all! I'm fully insured, and you'll get photo updates every visit. Let's keep those butts wigglin'!",
+    "Hi, I'm Celina! I provide dog walking and drop-in pet care across Fort Collins. If your pup pulls, sniffs every single tree, or would rather soak up cuddles and belly rubs, I love it all! I'm fully insured, and you'll get photo updates every visit. Let's keep those butts wigglin'!",
   ctaPrimary: 'Get in touch →',
   ctaSecondary: 'How it works',
 };
